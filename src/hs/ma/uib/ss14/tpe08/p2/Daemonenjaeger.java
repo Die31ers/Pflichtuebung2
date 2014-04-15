@@ -4,12 +4,9 @@ public class Daemonenjaeger extends Nachtelf {
 	
 	private String name = "Daemonenjaeger";
 
-	public Daemonenjaeger(String rasse, String eigenschaft,
-			double lebenspunkte, double ruestung, double schaden,
-			double geschwindigkeit, double spezialAttribut) {
-		super(rasse, eigenschaft, lebenspunkte, ruestung, schaden,
-				geschwindigkeit, spezialAttribut);
-		// TODO Auto-generated constructor stub
+	public Daemonenjaeger() {
+		super();
+		
 	}
 
 	@Override

@@ -3,19 +3,21 @@ package hs.ma.uib.ss14.tpe08.p2;
 public class Erzmagier extends Mensch{
 	
 	private String name = "Erzmagier";
+	private double bonus = 5.0;
 
-	public Erzmagier(String rasse, String eigenschaft, double lebenspunkte,
-			double ruestung, double schaden, double geschwindigkeit,
-			double spezialAttribut) {
-		super(rasse, eigenschaft, lebenspunkte, ruestung, schaden, geschwindigkeit,
-				spezialAttribut);
-		// TODO Auto-generated constructor stub
+
+	public Erzmagier() {
+		super();
 	}
 
 	@Override
 	public void attack(Kaempfer r) {
 		// TODO Auto-generated method stub
 		super.attack(r);
+	}
+	
+	public void absorption(){
+		
 	}
 
 	@Override

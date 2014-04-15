@@ -3,19 +3,21 @@ package hs.ma.uib.ss14.tpe08.p2;
 public class Lich extends Untote {
 	
 	private String name = "Lich";
+	private double bonus = 2.3;
 
-	public Lich(String rasse, String eigenschaft, double lebenspunkte,
-			double ruestung, double schaden, double geschwindigkeit,
-			double spezialAttribut) {
-		super(rasse, eigenschaft, lebenspunkte, ruestung, schaden, geschwindigkeit,
-				spezialAttribut);
-		// TODO Auto-generated constructor stub
+
+	public Lich() {
+		super();
 	}
 
 	@Override
 	public void attack(Kaempfer r) {
 		// TODO Auto-generated method stub
 		super.attack(r);
+	}
+	
+	public void verwesung(Squad s){
+		
 	}
 
 	@Override

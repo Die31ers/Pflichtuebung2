@@ -22,6 +22,6 @@ public abstract class Wesen {
 	}
 
 	public String toString() {
-		return "rasse";
+		return rasse + lebenspunkte;
 	}
 }

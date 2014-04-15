@@ -2,11 +2,9 @@ package hs.ma.uib.ss14.tpe08.p2;
 
 public class Nachtelf extends Wesen implements Kaempfer {
 
-	public Nachtelf(String rasse, String eigenschaft, double lebenspunkte,
-			double ruestung, double schaden, double geschwindigkeit,
-			double spezialAttribut) {
-		super(rasse, eigenschaft, lebenspunkte, ruestung, schaden, geschwindigkeit,
-				spezialAttribut);
+	public Nachtelf() {
+		super("Nachtelf", "Sind sehr intelligent", 120, 20, 15, 3,
+				2.9);
 		// TODO Auto-generated constructor stub
 	}
 

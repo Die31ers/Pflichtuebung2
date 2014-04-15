@@ -2,11 +2,9 @@ package hs.ma.uib.ss14.tpe08.p2;
 
 public class Mensch extends Wesen implements Kaempfer {
 
-	public Mensch(String rasse, String eigenschaft, double lebenspunkte,
-			double ruestung, double schaden, double geschwindigkeit,
-			double spezialAttribut) {
-		super(rasse, eigenschaft, lebenspunkte, ruestung, schaden, geschwindigkeit,
-				spezialAttribut);
+	public Mensch() {
+		super("Mensch", "Sind sehr ausdauernd", 140, 40, 40, 2,
+				10);
 		// TODO Auto-generated constructor stub
 	}
 
