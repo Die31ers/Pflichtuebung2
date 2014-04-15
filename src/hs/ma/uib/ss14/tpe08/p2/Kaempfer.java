@@ -2,7 +2,9 @@ package hs.ma.uib.ss14.tpe08.p2;
 
 public interface Kaempfer {
 	
-	public void attack(Kaempfer r);
-	public void isLebendig();
-	public void beschraenkeSchaden(double schaden);
+	public double attack(Kaempfer r);
+	public boolean isLebendig();
+	public double beschraenkeSchaden(double schaden);
+	public double erhalteSchaden(double schaden);
+	public String getElement();
 }

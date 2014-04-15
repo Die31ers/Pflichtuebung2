@@ -1,13 +1,13 @@
 package hs.ma.uib.ss14.tpe08.p2;
 
-public abstract class Wesen {
+public abstract class Wesen implements Kaempfer {
 	private String rasse;
 	private String eigenschaft;
-	private double lebenspunkte;
+	protected double lebenspunkte;
 	private double ruestung;
-	private double schaden;
-	private double geschwindigkeit;
-	private double spezialAttribut;
+	protected double schaden;
+	protected double geschwindigkeit;
+	protected double spezialAttribut;
 
 	public Wesen(String rasse, String eigenschaft, double lebenspunkte,
 			double ruestung, double schaden, double geschwindigkeit,
@@ -22,6 +22,86 @@ public abstract class Wesen {
 	}
 
 	public String toString() {
-		return rasse + lebenspunkte;
+		return "Rasse: " + rasse + ", Lebenspunkte: " + lebenspunkte;
 	}
+
+	public double getHP() {
+		return this.lebenspunkte;
+	}
+
+	@Override
+	public double attack(Kaempfer r) {
+		double damage = geschwindigkeit * schaden * spezialAttribut;
+		r.erhalteSchaden(damage);
+		return damage;
+	}
+
+	@Override
+	public double beschraenkeSchaden(double schaden) {
+		return schaden;
+	}
+
+	@Override
+	public double erhalteSchaden(double schaden) {
+		if (schaden != 0) {
+			this.lebenspunkte = this.lebenspunkte
+					- (schaden - (this.ruestung * schaden / 100));
+		}
+		return this.lebenspunkte;
+	}
+
+	@Override
+	public boolean isLebendig() {
+		if (this.lebenspunkte <= 0) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	/**
+	 * Vergleichen zweier Festkommazahlen auf Gleichheit. Wir implentieren eine
+	 * eigene equals Methode und überschreiben die equals Methode von der Object
+	 * Klasse. Verwendet die überschriebene <code>hashCode()</code> Methode um
+	 * schneller Objekte miteinander zu vergleichen und den Vergleichsaufwand zu
+	 * verringen.
+	 * 
+	 * 
+	 * @param obj
+	 *            vom Typ Object
+	 * @return true oder false, je nachdem was zutrifft
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null || this.getClass() != obj.getClass()) {
+			return false;
+		}
+		if (this == obj) {
+			return true;
+		}
+		if (obj.getClass() == this.getClass()) {
+			Wesen w = (Wesen) obj;// typecast Object zu
+									// Festkommazahl
+			if (this.lebenspunkte == w.lebenspunkte) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * Errechnen der Hashwerte. Da die equals Methode überschrieben wurde, muss
+	 * auch die hashCode Methode von der Object Klasse überschrieben werden. Mit
+	 * Hashwerten kann man so viel schneller Objekte miteinander vergleichen, da
+	 * es nur ein integer Wert zurückgibt.
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (int) (geschwindigkeit);
+		result = prime * result + (int) (spezialAttribut); 
+		return result;
+	}
+
 }
