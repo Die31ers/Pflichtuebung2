@@ -1,37 +1,61 @@
 package hs.ma.uib.ss14.tpe08.p2;
 
 public class Lich extends Untote {
-	
-	private String name = "Lich";
-	private double bonus = 2.3;
 
+	private static final String name = "Lich";
+	private static final double bonus = 2.3;
+	private static final String element = "Wasser";
 
-	public Lich() {
+	private static final Lich instance = new Lich();
+
+	private Lich() {
 		super();
 	}
 
-	@Override
-	public void attack(Kaempfer r) {
-		// TODO Auto-generated method stub
-		super.attack(r);
+	public static Lich getInstance() {
+		return instance;
+	}
+
+	public void verwesung(Squad s) {
+		lebenspunkte = lebenspunkte + (s.getAnzahl()* 7 );
+		s.erhalteTeamSchaden(7);
 	}
 	
-	public void verwesung(Squad s){
-		
+	public String getElement(){
+		return element;
 	}
 
 	@Override
-	public void isLebendig() {
-		// TODO Auto-generated method stub
-		super.isLebendig();
+	public double attack(Kaempfer r) {
+		double damage = geschwindigkeit * schaden * spezialAttribut * bonus;
+		// geht, dafür sind aber diese attribute protected und nicht mehr private
+		//double damage = super.attack(r) * bonus; // geht nicht, weil super.attack(r) beschraenkeSchaden schon aufruft
+		if (element.equals("Feuer")){ //Wie findet man Element des Gegners raus?
+			damage = damage * 2;
+		}
+		r.erhalteSchaden(damage);
+		return damage; 
 	}
-	
+
+	@Override
+	public double beschraenkeSchaden(double schaden) {
+		return super.beschraenkeSchaden(schaden);
+	}
+
+	@Override
+	public double erhalteSchaden(double schaden) {
+		return super.erhalteSchaden(schaden);
+	}
+
+	@Override
+	public boolean isLebendig() {
+		return super.isLebendig();
+	}
+
 	@Override
 	public String toString() {
 		// Name muss dazu gemacht werden.
-		return name + super.toString();
+		return name + ", " + super.toString();
 	}
-
-
 
 }
