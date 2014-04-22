@@ -15,7 +15,7 @@ public class Daemonenjaeger extends Nachtelf {
 	public static Daemonenjaeger getInstance() {
 		return instance;
 	}
-
+//mnnn
 	public void goldschuss(Squad s) {
 		s.erhalteTeamSchaden(25);
 	}
