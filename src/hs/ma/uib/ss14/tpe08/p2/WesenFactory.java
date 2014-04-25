@@ -2,20 +2,8 @@ package hs.ma.uib.ss14.tpe08.p2;
 
 public class WesenFactory {
 
-	public static Wesen[] team = new Wesen[20]; // vorerst festgesetzt auf 20
-												// Plätze.
-
-	public static void erzeuge(int elfendollar) {
-		while (elfendollar != 0) {
-			for (int i = 0; i < team.length; i++) {
-
-			}
-
-		}
-	}
-
-	public static void kaufeWesen(Squad s, Rasse rasse) {
-
+	public static void kaufeWesen(Squad s) {
+		Rasse rasse   ;
 		switch (rasse) {
 		case Ork:
 			s.hinzufuegen(new Ork());
