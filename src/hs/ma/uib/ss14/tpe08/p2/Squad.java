@@ -12,14 +12,18 @@ public class Squad {
 	public String toString() {
 		return name;
 	}
+	
 
 	public void erhalteTeamSchaden(double schaden) {
 		for (int i = 0; i < this.team.length; i++) {
 			this.team[i].erhalteSchaden(schaden);
 		}
 	}
+	
 
 	public void hinzufuegen(Wesen w) {
+		
+		
 		for (int i = 0; i < this.team.length; i++) {
 			if (this.team[i] == null) {
 				this.team[i] = w;
