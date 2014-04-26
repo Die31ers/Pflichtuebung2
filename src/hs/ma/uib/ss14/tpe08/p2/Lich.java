@@ -9,7 +9,7 @@ public class Lich extends Untote {
 	private static final Lich instance = new Lich();
 
 	private Lich() {
-		super();
+		super.lebenspunkte = lebenspunkte * bonus;
 	}
 
 	public static Lich getInstance() {
@@ -28,14 +28,13 @@ public class Lich extends Untote {
 	@Override
 	public double attack(Kaempfer r) {
 		double damage = geschwindigkeit * schaden * spezialAttribut * bonus;
-		// geht, dafür sind aber diese attribute protected und nicht mehr private
-		//double damage = super.attack(r) * bonus; // geht nicht, weil super.attack(r) beschraenkeSchaden schon aufruft
-		if (element.equals("Feuer")){ //Wie findet man Element des Gegners raus?
+		if (r.getElement().equals("Feuer")) {
 			damage = damage * 2;
 		}
 		r.erhalteSchaden(damage);
-		return damage; 
+		return damage;
 	}
+
 
 	@Override
 	public double beschraenkeSchaden(double schaden) {

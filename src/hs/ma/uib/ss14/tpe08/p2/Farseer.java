@@ -9,7 +9,7 @@ public class Farseer extends Ork {
 	private static final Farseer instance = new Farseer();
 
 	private Farseer() {
-		super();
+		super.lebenspunkte = lebenspunkte * bonus;
 	}
 
 	public static Farseer getInstance() {
@@ -30,17 +30,13 @@ public class Farseer extends Ork {
 	@Override
 	public double attack(Kaempfer r) {
 		double damage = geschwindigkeit * schaden * spezialAttribut * bonus;
-		// geht, dafür sind aber diese attribute protected und nicht mehr
-		// private
-		// double damage = super.attack(r) * bonus; // geht nicht, weil
-		// super.attack(r) beschraenkeSchaden schon aufruft
-		if (element.equals("Feuer")) { // Wie findet man Element des Gegners
-										// raus?
+		if (r.getElement().equals("Wasser")) {
 			damage = damage * 2;
 		}
 		r.erhalteSchaden(damage);
 		return damage;
 	}
+
 
 	@Override
 	public double beschraenkeSchaden(double schaden) {

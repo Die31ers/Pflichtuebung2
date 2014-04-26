@@ -6,4 +6,5 @@ public interface Kaempfer {
 	public boolean isLebendig();
 	public double beschraenkeSchaden(double schaden);
 	public double erhalteSchaden(double schaden);
+	public String getElement();
 }

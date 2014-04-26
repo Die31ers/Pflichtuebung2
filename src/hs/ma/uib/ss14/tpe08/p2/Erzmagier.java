@@ -10,7 +10,7 @@ public class Erzmagier extends Mensch {
 	private static final Erzmagier instance = new Erzmagier();
 
 	private Erzmagier() {
-		super();
+		super.lebenspunkte = lebenspunkte * bonus;
 	}
 
 	public static Erzmagier getInstance() {
@@ -28,12 +28,7 @@ public class Erzmagier extends Mensch {
 	@Override
 	public double attack(Kaempfer r) {
 		double damage = geschwindigkeit * schaden * spezialAttribut * bonus;
-		// geht, dafür sind aber diese attribute protected und nicht mehr
-		// private
-		// double damage = super.attack(r) * bonus; // geht nicht, weil
-		// super.attack(r) beschraenkeSchaden schon aufruft
-		if (element.equals("Feuer")) { // Wie findet man Element des Gegners
-										// raus?
+		if (r.getElement().equals("Luft")) {
 			damage = damage * 2;
 		}
 		r.erhalteSchaden(damage);

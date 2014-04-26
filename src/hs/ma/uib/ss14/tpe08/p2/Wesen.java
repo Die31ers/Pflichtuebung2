@@ -32,7 +32,7 @@ public abstract class Wesen implements Kaempfer {
 	@Override
 	public double attack(Kaempfer r) {
 		double damage = geschwindigkeit * schaden * spezialAttribut;
-		r.beschraenkeSchaden(damage);
+		r.erhalteSchaden(damage);
 		return damage;
 	}
 
