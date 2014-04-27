@@ -53,7 +53,6 @@ public class Lich extends Untote {
 
 	@Override
 	public String toString() {
-		// Name muss dazu gemacht werden.
 		return name + ", " + super.toString();
 	}
 

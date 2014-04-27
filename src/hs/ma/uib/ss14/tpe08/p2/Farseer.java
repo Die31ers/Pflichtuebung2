@@ -50,7 +50,6 @@ public class Farseer extends Ork {
 
 	@Override
 	public String toString() {
-		// Name muss dazu gemacht werden.
 		return name + ", " + super.toString();
 	}
 

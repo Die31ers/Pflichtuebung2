@@ -29,7 +29,6 @@ public class Untote extends Wesen {
 
 	@Override
 	public String getElement() {
-		// TODO Auto-generated method stub
 		return "";
 	}
 

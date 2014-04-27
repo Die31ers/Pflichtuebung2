@@ -29,7 +29,6 @@ public class Ork extends Wesen {
 
 	@Override
 	public String getElement() {
-		// TODO Auto-generated method stub
 		return "";
 	}
 

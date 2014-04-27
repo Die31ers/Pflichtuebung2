@@ -3,17 +3,25 @@ package hs.ma.uib.ss14.tpe08.p2;
 public class Squad {
 	private String name;
 	public Wesen[] team = new Wesen[0];
+	private int kosten = 0;
 
 	public Squad(String name, Rasse rasse1, int investition1, Rasse rasse2,
 			int investition2) {
 		this.name = name;
-		WesenFactory.kaufeWesen(this, rasse1, investition1);
-		WesenFactory.kaufeWesen(this, rasse2, investition2);
+		this.kosten = investition1 + investition2;
+		if (this.kosten <= 2000) {
+			WesenFactory.kaufeWesen(this, rasse1, investition1);
+			WesenFactory.kaufeWesen(this, rasse2, investition2);
+		}
 	}
 
 	@Override
 	public String toString() {
 		return name;
+	}
+
+	public int getKosten() {
+		return this.kosten;
 	}
 
 	public static Wesen[] arrayErweitern(Wesen[] ursprungsArray, Wesen w) {
@@ -28,7 +36,7 @@ public class Squad {
 	public static Wesen[] arrayKuerzen(Wesen[] ursprungsArray) {
 		Wesen[] neuesArray = new Wesen[ursprungsArray.length - 1];
 		for (int l = 0; l < ursprungsArray.length - 1; l++) {
-			neuesArray[l] = ursprungsArray[l];
+			neuesArray[l] = ursprungsArray[l + 1];
 		}
 		return neuesArray;
 	}
@@ -44,19 +52,24 @@ public class Squad {
 	}
 
 	public void loesche(Wesen w) {
-		for (int i = 0; i < this.team.length - 1; i++) {
-			if (this.team[i].equals(w)) {
-				this.team[i] = this.team[i + 1];
-				this.team = arrayKuerzen(this.team);
+		if (this.team[0].equals(this.team[this.team.length - 1])) {
+			this.team = null;
+		} else {
+			for (int i = 0; i < this.team.length - 1; i++) {
+				if (this.team[i].equals(w)) {
+					this.team = arrayKuerzen(this.team);
+				}
 			}
 		}
 	}
 
 	public int getAnzahl() {
 		int zaehler = 0;
-		for (int i = 0; i < this.team.length; i++) {
-			if (this.team[i] != null) {
-				zaehler++;
+		if (this.team != null) {
+			for (int i = 0; i < this.team.length; i++) {
+				if (this.team[i] != null) {
+					zaehler++;
+				}
 			}
 		}
 		return zaehler;

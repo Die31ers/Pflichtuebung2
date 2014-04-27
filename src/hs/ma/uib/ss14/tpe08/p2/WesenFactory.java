@@ -27,22 +27,44 @@ public class WesenFactory {
 		case Ork:
 			s.hinzufuegen(Farseer.getInstance());
 			erg = investition - Rasse.Farseer.getKosten();
-			erstelleWesen(s, Rasse.Ork, erg, new Ork());
+			do {
+				s.hinzufuegen(new Ork());
+				erg = erg - rasse.getKosten();
+
+			} while (erg - rasse.getKosten() > 0);
+			//erstelleWesen(s, Rasse.Ork, erg, new Ork());
 			break;
 		case Untote:
 			s.hinzufuegen(Lich.getInstance());
 			erg = investition - Rasse.Lich.getKosten();
-			erstelleWesen(s, Rasse.Untote, erg, new Untote());
+			do {
+				s.hinzufuegen(new Untote());
+				erg = erg - rasse.getKosten();
+
+			} while (erg - rasse.getKosten() > 0);
+			//erstelleWesen(s, Rasse.Untote, erg, new Untote());
 			break;
 		case Mensch:
 			s.hinzufuegen(Erzmagier.getInstance());
 			erg = investition - Rasse.Erzmagier.getKosten();
-			erstelleWesen(s, Rasse.Mensch, erg, new Mensch());
+			do {
+				s.hinzufuegen(new Mensch());
+				erg = erg - rasse.getKosten();
+
+			} while (erg - rasse.getKosten() > 0);
+			//erstelleWesen(s, Rasse.Mensch, erg, new Mensch());
 			break;
 		case Nachtelf:
 			s.hinzufuegen(Daemonenjaeger.getInstance());
 			erg = investition - Rasse.Daemonenjaeger.getKosten();
-			erstelleWesen(s, Rasse.Nachtelf, erg, new Nachtelf());
+			do {
+				s.hinzufuegen(new Nachtelf());
+				erg = erg - rasse.getKosten();
+
+			} while (erg - rasse.getKosten() > 0);
+			//erstelleWesen(s, Rasse.Nachtelf, erg, new Nachtelf());
+			break;
+		default:
 			break;
 		}
 

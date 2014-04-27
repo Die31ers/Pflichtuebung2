@@ -24,7 +24,6 @@ public class Geist implements Kaempfer{
 
 	@Override
 	public String getElement() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

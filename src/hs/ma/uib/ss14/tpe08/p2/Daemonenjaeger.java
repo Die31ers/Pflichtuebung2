@@ -52,7 +52,6 @@ public class Daemonenjaeger extends Nachtelf {
 
 	@Override
 	public String toString() {
-		// Name muss dazu gemacht werden.
 		return name + ", " + super.toString();
 	}
 }
