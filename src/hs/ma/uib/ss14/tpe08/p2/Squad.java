@@ -57,6 +57,7 @@ public class Squad {
 		} else {
 			for (int i = 0; i < this.team.length - 1; i++) {
 				if (this.team[i].equals(w)) {
+					this.team[i] = this.team[i + 1];
 					this.team = arrayKuerzen(this.team);
 				}
 			}
@@ -67,7 +68,7 @@ public class Squad {
 		int zaehler = 0;
 		if (this.team != null) {
 			for (int i = 0; i < this.team.length; i++) {
-				if (this.team[i] != null) {
+				if (this.team[i].isLebendig()) {
 					zaehler++;
 				}
 			}

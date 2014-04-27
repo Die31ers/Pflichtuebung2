@@ -10,17 +10,20 @@ public class GameViewer {
 		System.out.print(game.s1);
 		System.out.printf(", Anzahl %d %n", game.s1.getAnzahl());
 		System.out.println();
-		for (int x = 0; x < game.s1.getAnzahl(); x++) {
-			System.out.println(game.s1.team[x]);
+		for (int x = 0; x < game.s1.team.length; x++) {
+			if (game.s1.team[x].isLebendig()){
+				System.out.println(game.s1.team[x]);
+			}
 		}
 		System.out.println();
 		System.out.print(game.s2);
 		System.out.printf(", Anzahl %d %n", game.s2.getAnzahl());
 		System.out.println();
-		for (int x = 0; x < game.s2.getAnzahl(); x++) {
+		for (int x = 0; x < game.s2.team.length; x++) {
+			if (game.s2.team[x].isLebendig()){
 			System.out.println(game.s2.team[x]);
+			}
 		}
 		System.out.println();
-		
 	}
 }
