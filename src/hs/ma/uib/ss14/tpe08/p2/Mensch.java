@@ -1,5 +1,11 @@
 package hs.ma.uib.ss14.tpe08.p2;
-
+/**
+ * 
+ * @author Giang Pham
+ * @author Joshua Barsoum
+ * @author Hunar Mawlod
+ *
+ */
 public class Mensch extends Wesen {
 
 	public Mensch() {

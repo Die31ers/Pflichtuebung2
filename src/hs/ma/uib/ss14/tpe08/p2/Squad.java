@@ -1,10 +1,24 @@
 package hs.ma.uib.ss14.tpe08.p2;
-
+/**
+ * 
+ * @author Giang Pham
+ * @author Joshua Barsoum
+ * @author Hunar Mawlod
+ *
+ */
 public class Squad {
 	private String name;
 	public Wesen[] team = new Wesen[0];
 	private int kosten = 0;
 
+	public Squad(String name, Rasse rasse1, int investition1) {
+		this.name = name;
+		this.kosten = investition1;
+		if (this.kosten <= 2000) {
+			WesenFactory.kaufeWesen(this, rasse1, investition1);
+		}
+	}
+	
 	public Squad(String name, Rasse rasse1, int investition1, Rasse rasse2,
 			int investition2) {
 		this.name = name;
@@ -53,7 +67,8 @@ public class Squad {
 
 	public void loesche(Wesen w) {
 		if (this.team[0].equals(this.team[this.team.length - 1])) {
-			this.team = null;
+			Wesen[] nix = new Wesen[0];
+			this.team = nix;
 		} else {
 			for (int i = 0; i < this.team.length - 1; i++) {
 				if (this.team[i].equals(w)) {

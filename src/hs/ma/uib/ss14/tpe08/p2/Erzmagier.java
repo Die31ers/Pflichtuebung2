@@ -1,11 +1,19 @@
 package hs.ma.uib.ss14.tpe08.p2;
 
+/**
+ * 
+ * @author Giang Pham
+ * @author Joshua Barsoum
+ * @author Hunar Mawlod
+ * 
+ */
 public class Erzmagier extends Mensch {
 
 	private static final String name = "Erzmagier";
 	private static final double bonus = 5.0;
 	private static final String element = "Feuer";
 	private boolean unverwundbar = false;
+	private static boolean vorhanden;
 
 	private static final Erzmagier instance = new Erzmagier();
 
@@ -14,7 +22,12 @@ public class Erzmagier extends Mensch {
 	}
 
 	public static Erzmagier getInstance() {
+		vorhanden = true;
 		return instance;
+	}
+
+	public static boolean istVorhanden() {
+		return vorhanden;
 	}
 
 	public void absorption() {

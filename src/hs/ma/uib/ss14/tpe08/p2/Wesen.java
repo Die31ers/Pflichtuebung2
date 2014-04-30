@@ -1,5 +1,11 @@
 package hs.ma.uib.ss14.tpe08.p2;
-
+/**
+ * 
+ * @author Giang Pham
+ * @author Joshua Barsoum
+ * @author Hunar Mawlod
+ *
+ */
 public abstract class Wesen implements Kaempfer {
 	private String rasse;
 	private String eigenschaft;
@@ -80,8 +86,7 @@ public abstract class Wesen implements Kaempfer {
 			return true;
 		}
 		if (obj.getClass() == this.getClass()) {
-			Wesen w = (Wesen) obj;// typecast Object zu
-									// Festkommazahl
+			Wesen w = (Wesen) obj;
 			if (this.lebenspunkte == w.lebenspunkte) {
 				return true;
 			}

@@ -1,10 +1,18 @@
 package hs.ma.uib.ss14.tpe08.p2;
 
+/**
+ * 
+ * @author Giang Pham
+ * @author Joshua Barsoum
+ * @author Hunar Mawlod
+ * 
+ */
 public class Lich extends Untote {
 
 	private static final String name = "Lich";
 	private static final double bonus = 2.3;
 	private static final String element = "Wasser";
+	private static boolean istVorhanden;
 
 	private static final Lich instance = new Lich();
 
@@ -13,15 +21,20 @@ public class Lich extends Untote {
 	}
 
 	public static Lich getInstance() {
+		istVorhanden = true;
 		return instance;
 	}
 
+	public static boolean istVorhanden() {
+		return istVorhanden;
+	}
+
 	public void verwesung(Squad s) {
-		lebenspunkte = lebenspunkte + (s.getAnzahl()* 7 );
+		lebenspunkte = lebenspunkte + (s.getAnzahl() * 7);
 		s.erhalteTeamSchaden(7);
 	}
-	
-	public String getElement(){
+
+	public String getElement() {
 		return element;
 	}
 
@@ -34,7 +47,6 @@ public class Lich extends Untote {
 		r.erhalteSchaden(damage);
 		return damage;
 	}
-
 
 	@Override
 	public double beschraenkeSchaden(double schaden) {

@@ -1,10 +1,18 @@
 package hs.ma.uib.ss14.tpe08.p2;
 
+/**
+ * 
+ * @author Giang Pham
+ * @author Joshua Barsoum
+ * @author Hunar Mawlod
+ * 
+ */
 public class Daemonenjaeger extends Nachtelf {
 
 	private static final String name = "Daemonenjaeger";
 	private static final double bonus = 3.0;
 	private static final String element = "Luft";
+	private static boolean vorhanden;
 
 	private static final Daemonenjaeger instance = new Daemonenjaeger();
 
@@ -13,7 +21,12 @@ public class Daemonenjaeger extends Nachtelf {
 	}
 
 	public static Daemonenjaeger getInstance() {
+		vorhanden = true;
 		return instance;
+	}
+
+	public static boolean istVorhanden() {
+		return vorhanden;
 	}
 
 	public void goldschuss(Squad s) {
@@ -34,12 +47,11 @@ public class Daemonenjaeger extends Nachtelf {
 		return damage;
 	}
 
-
 	@Override
 	public double beschraenkeSchaden(double schaden) {
 		return super.beschraenkeSchaden(schaden);
 	}
-	
+
 	@Override
 	public double erhalteSchaden(double schaden) {
 		return super.erhalteSchaden(schaden);
