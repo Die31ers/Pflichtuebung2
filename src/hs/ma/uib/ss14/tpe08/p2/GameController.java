@@ -18,7 +18,7 @@ public class GameController {
 	
 	public static Squad s1 = new Squad("The walking dead", Rasse.Lich, 140, Rasse.Untote, 860,
 			Rasse.Ork, 1000);
-	public static Squad s2 = new Squad("Superman is nich super", Rasse.Erzmagier, 140, Rasse.Mensch,
+	public static Squad s2 = new Squad("Superman is nich super", Rasse.Daemonenjaeger, 140, Rasse.Mensch,
 			1860);
 	/*
 	public static Squad s1 = new Squad("The walking dead", Rasse.Untote, 1000,
@@ -27,7 +27,7 @@ public class GameController {
 			2000);
 	 */
 	public static int zufall(int squadAnzahl) {
-		int erg = (int) (Math.random() * (squadAnzahl));
+		int erg = (int) (Math.random() * (squadAnzahl - 0 ) + 0);
 		return erg;
 	}
 
@@ -44,24 +44,26 @@ public class GameController {
 		else {
 			while (s1.team.length != 0 || s2.team.length != 0) {
 				GameViewer.printGame(game);
-
+				if (s1.getAnzahl() > 0) {
 				for (int i = 0; i < s1.team.length; i++) {
 					if (s1.team[i].isLebendig() == false) {
 						s1.loesche(s1.team[i]);
 					}
 				}
+				}
+				if (s2.getAnzahl() > 0) {
 				for (int i = 0; i < s2.team.length; i++) {
 					if (s2.team[i].isLebendig() == false) {
 						s2.loesche(s2.team[i]);
 					}
 				}
-
+				}
 				if (s1.getAnzahl() > 0 && s2.getAnzahl() > 0) {
 					int zufall1 = zufall(s1.team.length);
 					int zufall2 = zufall(s2.team.length);
 					s1.team[zufall1].attack(s2.team[zufall2]);
 				}
-
+				
 				if (s1.getAnzahl() > 0 && s2.getAnzahl() > 0) {
 					int zufall3 = zufall(s1.team.length);
 					int zufall4 = zufall(s2.team.length);

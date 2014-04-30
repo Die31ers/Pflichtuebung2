@@ -50,7 +50,6 @@ public class WesenFactory {
 			do {
 				s.hinzufuegen(new Nachtelf());
 				erg = erg - rasse.getKosten();
-
 			} while (erg - rasse.getKosten() > 0);
 			// erstelleWesen(s, Rasse.Nachtelf, erg, new Nachtelf());
 			break;
@@ -77,7 +76,5 @@ public class WesenFactory {
 		default:
 			break;
 		}
-
 	}
-
 }

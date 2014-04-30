@@ -1,10 +1,11 @@
 package hs.ma.uib.ss14.tpe08.p2;
+
 /**
  * 
  * @author Giang Pham
  * @author Joshua Barsoum
  * @author Hunar Mawlod
- *
+ * 
  */
 public class Squad {
 	private String name;
@@ -20,9 +21,9 @@ public class Squad {
 			WesenFactory.kaufeWesen(this, rasse2, investition2);
 		}
 	}
-	
+
 	public Squad(String name, Rasse rasse1, int investition1, Rasse rasse2,
-			int investition2, Rasse rasse3,	int investition3) {
+			int investition2, Rasse rasse3, int investition3) {
 		this.name = name;
 		this.kosten = investition1 + investition2 + investition3;
 		if (this.kosten <= 2000) {
@@ -69,13 +70,12 @@ public class Squad {
 	}
 
 	public void loesche(Wesen w) {
-		if (this.team[0].equals(this.team[this.team.length - 1])) {
-			Wesen[] nix = new Wesen[0];
+		Wesen[] nix = new Wesen[0];
+		if (this.team[this.team.length - 1].equals(this.team[0])) {
 			this.team = nix;
 		} else {
-			for (int i = 0; i < this.team.length - 1; i++) {
+			for (int i = 0; i < this.team.length; i++) {
 				if (this.team[i].equals(w)) {
-					this.team[i] = this.team[i + 1];
 					this.team = arrayKuerzen(this.team);
 				}
 			}
