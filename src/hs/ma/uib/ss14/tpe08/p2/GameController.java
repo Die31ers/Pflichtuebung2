@@ -6,8 +6,8 @@ package hs.ma.uib.ss14.tpe08.p2;
  * 
  * Regelwerk:
  * 
- * Nur ein Anführer pro Squad! Jede Rasse braucht seinen Anführer! Startkapital
- * 2000 Elfendollar!
+ * Nur ein Anführer pro Squad!
+ * Startkapital: 2000 Elfendollar!
  * 
  * @author Giang Pham
  * @author Joshua Barsoum
@@ -15,11 +15,17 @@ package hs.ma.uib.ss14.tpe08.p2;
  * 
  */
 public class GameController {
+	
+	public static Squad s1 = new Squad("The walking dead", Rasse.Lich, 140, Rasse.Untote, 860,
+			Rasse.Ork, 1000);
+	public static Squad s2 = new Squad("Superman is nich super", Rasse.Erzmagier, 140, Rasse.Mensch,
+			1860);
+	/*
 	public static Squad s1 = new Squad("The walking dead", Rasse.Untote, 1000,
 			Rasse.Ork, 1000);
 	public static Squad s2 = new Squad("Superman is nich super", Rasse.Mensch,
 			2000);
-
+	 */
 	public static int zufall(int squadAnzahl) {
 		int erg = (int) (Math.random() * (squadAnzahl));
 		return erg;
@@ -36,7 +42,7 @@ public class GameController {
 		}
 
 		else {
-			while (s1.team.length > 0 || s2.team.length > 0) {
+			while (s1.team.length != 0 || s2.team.length != 0) {
 				GameViewer.printGame(game);
 
 				for (int i = 0; i < s1.team.length; i++) {

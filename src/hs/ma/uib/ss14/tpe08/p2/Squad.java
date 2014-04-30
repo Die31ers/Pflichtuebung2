@@ -11,14 +11,6 @@ public class Squad {
 	public Wesen[] team = new Wesen[0];
 	private int kosten = 0;
 
-	public Squad(String name, Rasse rasse1, int investition1) {
-		this.name = name;
-		this.kosten = investition1;
-		if (this.kosten <= 2000) {
-			WesenFactory.kaufeWesen(this, rasse1, investition1);
-		}
-	}
-	
 	public Squad(String name, Rasse rasse1, int investition1, Rasse rasse2,
 			int investition2) {
 		this.name = name;
@@ -26,6 +18,17 @@ public class Squad {
 		if (this.kosten <= 2000) {
 			WesenFactory.kaufeWesen(this, rasse1, investition1);
 			WesenFactory.kaufeWesen(this, rasse2, investition2);
+		}
+	}
+	
+	public Squad(String name, Rasse rasse1, int investition1, Rasse rasse2,
+			int investition2, Rasse rasse3,	int investition3) {
+		this.name = name;
+		this.kosten = investition1 + investition2 + investition3;
+		if (this.kosten <= 2000) {
+			WesenFactory.kaufeWesen(this, rasse1, investition1);
+			WesenFactory.kaufeWesen(this, rasse2, investition2);
+			WesenFactory.kaufeWesen(this, rasse3, investition3);
 		}
 	}
 
