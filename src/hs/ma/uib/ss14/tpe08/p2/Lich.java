@@ -1,5 +1,16 @@
 package hs.ma.uib.ss14.tpe08.p2;
-
+/**
+ * 
+ * @author Giang Pham
+ * @author Joshua Barsoum
+ * @author Hunar Mawlod
+ *
+ * Die Klasse Lich ist eine Unterklasse von Untote. Der Anführer der Untoten 
+ * ist der dunkle Lich.
+ * Lich hat ein beherrschtes Element Wasser.
+ * Die Anführer besitzen zusätzlich einen Bonus Faktor. Dieses wird auch als
+ * Multiplikator für die Heldenlebenspunkte verwendet. Bonus für Lich ist 2.3
+ */
 public class Lich extends Untote {
 
 	private static final String name = "Lich";
@@ -8,14 +19,22 @@ public class Lich extends Untote {
 
 	private static final Lich instance = new Lich();
 
+	/** Hier wird die Lebenspunkte von Lich berechnet.
+	 */
 	private Lich() {
-		super();
+		super.lebenspunkte = lebenspunkte * bonus;
 	}
 
 	public static Lich getInstance() {
 		return instance;
 	}
 
+	/** Jede Held verfügt zusätzlich über eine Spezialfunktion die nur jede 3.
+	 * Runde aufgerufen werden kann.
+	 * @param s
+	 * <code>verwesung(Squad s)</code> entzieht allen Einheiten des Squads 7
+	 * Punkte und gibt sich selbst die enzogene Lebenspunkte.
+	 */
 	public void verwesung(Squad s) {
 		lebenspunkte = lebenspunkte + (s.getAnzahl()* 7 );
 		s.erhalteTeamSchaden(7);
@@ -24,18 +43,21 @@ public class Lich extends Untote {
 	public String getElement(){
 		return element;
 	}
-
+	
+	/** Hier wird die Methode <code>attack(Kaempfer r)</code> überschrieben, da
+	 * jeder Charakter anders angreift wird sie für jeden Wesen neu definiert.
+	 * @param r
+	 */
 	@Override
 	public double attack(Kaempfer r) {
 		double damage = geschwindigkeit * schaden * spezialAttribut * bonus;
-		// geht, dafür sind aber diese attribute protected und nicht mehr private
-		//double damage = super.attack(r) * bonus; // geht nicht, weil super.attack(r) beschraenkeSchaden schon aufruft
-		if (element.equals("Feuer")){ //Wie findet man Element des Gegners raus?
+		if (r.getElement().equals("Feuer")) {
 			damage = damage * 2;
 		}
 		r.erhalteSchaden(damage);
-		return damage; 
+		return damage;
 	}
+
 
 	@Override
 	public double beschraenkeSchaden(double schaden) {
@@ -54,7 +76,6 @@ public class Lich extends Untote {
 
 	@Override
 	public String toString() {
-		// Name muss dazu gemacht werden.
 		return name + ", " + super.toString();
 	}
 

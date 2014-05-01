@@ -1,5 +1,17 @@
 package hs.ma.uib.ss14.tpe08.p2;
-
+/**
+ * 
+ * @author Giang Pham
+ * @author Joshua Barsoum
+ * @author Hunar Mawlod
+ *
+ * Die Klasse Erzmagier ist eine Unterklasse von Mensch. 
+ * Der Anführer der Menschen ist der Erzmagier.
+ * Erzmagier hat ein beherrschtes Element Feuer.
+ * Die Anführer besitzen zusätzlich einen Bonus Faktor. Dieses wird auch als
+ * Multiplikator für die Heldenlebenspunkte verwendet. 
+ * Bonus für Erzmagier ist 5.0
+ */
 public class Erzmagier extends Mensch {
 
 	private static final String name = "Erzmagier";
@@ -10,13 +22,18 @@ public class Erzmagier extends Mensch {
 	private static final Erzmagier instance = new Erzmagier();
 
 	private Erzmagier() {
-		super();
+		super.lebenspunkte = lebenspunkte * bonus;
 	}
 
 	public static Erzmagier getInstance() {
 		return instance;
 	}
 
+	/** 
+	 * Jede Held verfügt zusätzlich über eine Spezialfunktion die nur jede 3.
+	 * Runde aufgerufen werden kann.
+	 * <code>absorption()</code> Bekommt eine Runde keinen Schaden.
+	 */
 	public void absorption() {
 		unverwundbar = true;
 	}
@@ -25,15 +42,14 @@ public class Erzmagier extends Mensch {
 		return element;
 	}
 
+	/** Hier wird die Methode <code>attack(Kaempfer r)</code> überschrieben, da
+	 * jeder Charakter anders angreift wird sie für jeden Wesen neu definiert.
+	 * @param r
+	 */
 	@Override
 	public double attack(Kaempfer r) {
 		double damage = geschwindigkeit * schaden * spezialAttribut * bonus;
-		// geht, dafür sind aber diese attribute protected und nicht mehr
-		// private
-		// double damage = super.attack(r) * bonus; // geht nicht, weil
-		// super.attack(r) beschraenkeSchaden schon aufruft
-		if (element.equals("Feuer")) { // Wie findet man Element des Gegners
-										// raus?
+		if (r.getElement().equals("Luft")) {
 			damage = damage * 2;
 		}
 		r.erhalteSchaden(damage);
@@ -60,7 +76,6 @@ public class Erzmagier extends Mensch {
 
 	@Override
 	public String toString() {
-		// Name muss dazu gemacht werden.
 		return name + ", " + super.toString();
 	}
 }
