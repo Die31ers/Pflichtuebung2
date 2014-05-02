@@ -26,54 +26,49 @@ public class WesenFactory {
 		int erg = investition;
 		switch (rasse) {
 		case Ork:
-			do {
-				s.hinzufuegen(new Ork());
-				erg = erg - rasse.getKosten();
-			} while (erg - rasse.getKosten() > 0);
-			// erstelleWesen(s, Rasse.Ork, erg, new Ork());
-			break;
-		case Untote:
-			do {
-				s.hinzufuegen(new Untote());
-				erg = erg - rasse.getKosten();
-			} while (erg - rasse.getKosten() > 0);
-			// erstelleWesen(s, Rasse.Untote, erg, new Untote());
-			break;
-		case Mensch:
-			do {
-				s.hinzufuegen(new Mensch());
-				erg = erg - rasse.getKosten();
-			} while (erg - rasse.getKosten() > 0);
-			// erstelleWesen(s, Rasse.Mensch, erg, new Mensch());
-			break;
-		case Nachtelf:
-			do {
-				s.hinzufuegen(new Nachtelf());
-				erg = erg - rasse.getKosten();
-			} while (erg - rasse.getKosten() > 0);
-			// erstelleWesen(s, Rasse.Nachtelf, erg, new Nachtelf());
-			break;
-		case Daemonenjaeger:
-			if (Daemonenjaeger.istVorhanden() == false) {
-				s.hinzufuegen(Daemonenjaeger.getInstance());
-			}
-			break;
-		case Erzmagier:
-			if (Erzmagier.istVorhanden() == false) {
-				s.hinzufuegen(Erzmagier.getInstance());
-			}
-			break;
-		case Farseer:
 			if (Farseer.istVorhanden() == false) {
 				s.hinzufuegen(Farseer.getInstance());
+				erg = erg - Rasse.Farseer.getKosten();
+			}
+			while (erg - rasse.getKosten() > 0){
+				s.hinzufuegen(new Ork());
+				erg = erg - rasse.getKosten();
+			// erstelleWesen(s, Rasse.Ork, erg, new Ork());
 			}
 			break;
-		case Lich:
+		case Untote:
 			if (Lich.istVorhanden() == false) {
 				s.hinzufuegen(Lich.getInstance());
+				erg = erg - Rasse.Lich.getKosten();
+			}
+			while (erg - rasse.getKosten() > 0){
+				s.hinzufuegen(new Untote());
+				erg = erg - rasse.getKosten();
+			// erstelleWesen(s, Rasse.Untote, erg, new Untote());
+			}
+				break;
+		case Mensch:
+			if (Erzmagier.istVorhanden() == false) {
+				s.hinzufuegen(Erzmagier.getInstance());
+				erg = erg - Rasse.Erzmagier.getKosten();
+			}
+			while (erg - rasse.getKosten() > 0){
+				s.hinzufuegen(new Mensch());
+				erg = erg - rasse.getKosten();
+			// erstelleWesen(s, Rasse.Mensch, erg, new Mensch());
 			}
 			break;
-		default:
+		case Nachtelf:
+			if (Daemonenjaeger.istVorhanden() == false) {
+				s.hinzufuegen(Daemonenjaeger.getInstance());
+				erg = erg - Rasse.Daemonenjaeger.getKosten();
+			}
+			while (erg - rasse.getKosten() > 0){
+				s.hinzufuegen(new Nachtelf());
+				erg = erg - rasse.getKosten();
+			
+			// erstelleWesen(s, Rasse.Nachtelf, erg, new Nachtelf());
+			}
 			break;
 		}
 	}

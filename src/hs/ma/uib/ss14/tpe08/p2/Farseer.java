@@ -31,8 +31,8 @@ public class Farseer extends Ork {
 
 	public void doppelschlag(Squad s) {
 		for (int i = 0; i < 2; i++) {
-			int zufall = (int) (Math.random() * (s.team.length - 0) + 0);
-			s.loesche(s.team[zufall]);
+			int zufall = (int) (Math.random() * (s.getAnzahl() - 0) + 0);
+			s.loesche(s.team.get(zufall));
 		}
 	}
 
