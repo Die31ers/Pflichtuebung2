@@ -1,4 +1,4 @@
-package hs.ma.uib.ss14.tpe08.p2;
+package hs.ma.uib.ss14.tpe08.p2.Game;
 
 /**
  * 
@@ -11,7 +11,6 @@ public class GameViewer {
 	private static int i = 0;
 
 	public static void printGame(GameController game) {
-
 		i++;
 		System.out.printf("%n<< Runde %d >> %n", i);
 		System.out.println();
@@ -63,7 +62,6 @@ public class GameViewer {
 							game.s1.team.get(zufall3).toString(),
 							game.s2.team.get(zufall4).attack(
 									game.s1.team.get(zufall3)));
-
 		}
 
 	}

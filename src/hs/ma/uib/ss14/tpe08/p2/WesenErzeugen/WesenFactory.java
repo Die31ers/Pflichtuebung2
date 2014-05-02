@@ -1,4 +1,14 @@
-package hs.ma.uib.ss14.tpe08.p2;
+package hs.ma.uib.ss14.tpe08.p2.WesenErzeugen;
+
+import hs.ma.uib.ss14.tpe08.p2.Wesen.Daemonenjaeger;
+import hs.ma.uib.ss14.tpe08.p2.Wesen.Erzmagier;
+import hs.ma.uib.ss14.tpe08.p2.Wesen.Farseer;
+import hs.ma.uib.ss14.tpe08.p2.Wesen.Lich;
+import hs.ma.uib.ss14.tpe08.p2.Wesen.Mensch;
+import hs.ma.uib.ss14.tpe08.p2.Wesen.Nachtelf;
+import hs.ma.uib.ss14.tpe08.p2.Wesen.Ork;
+import hs.ma.uib.ss14.tpe08.p2.Wesen.Untote;
+import hs.ma.uib.ss14.tpe08.p2.Wesen.Wesen;
 
 /**
  * 

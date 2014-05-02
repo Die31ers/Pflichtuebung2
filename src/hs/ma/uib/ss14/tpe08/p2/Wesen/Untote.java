@@ -1,4 +1,4 @@
-package hs.ma.uib.ss14.tpe08.p2;
+package hs.ma.uib.ss14.tpe08.p2.Wesen;
 /**
  * 
  * @author Giang Pham
@@ -6,11 +6,11 @@ package hs.ma.uib.ss14.tpe08.p2;
  * @author Hunar Mawlod
  *
  */
-public class Nachtelf extends Wesen {
+public class Untote extends Wesen {
 
-	public Nachtelf() {
-		super("Nachtelf", "Sind sehr intelligent", 120, 20, 15, 3,
-				2.9);
+	public Untote() {
+		super("Untote", "Sind sehr günstig und in der Masse sehr stark", 120,
+				30, 16, 2, 1.6);
 	}
 
 	@Override
@@ -37,7 +37,6 @@ public class Nachtelf extends Wesen {
 	public String getElement() {
 		return "";
 	}
-
 
 
 

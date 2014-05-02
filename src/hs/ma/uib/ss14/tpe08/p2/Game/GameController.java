@@ -1,4 +1,7 @@
-package hs.ma.uib.ss14.tpe08.p2;
+package hs.ma.uib.ss14.tpe08.p2.Game;
+
+import hs.ma.uib.ss14.tpe08.p2.WesenErzeugen.Rasse;
+import hs.ma.uib.ss14.tpe08.p2.WesenErzeugen.Squad;
 
 /**
  * 
@@ -18,13 +21,6 @@ public class GameController {
 			1000, Rasse.Ork, 1000);
 	public static Squad s2 = new Squad("Superman is nich super",
 			Rasse.Mensch, 1000, Rasse.Nachtelf, 1000);
-
-	/*
-	public static int zufall(int squadAnzahl) {
-		int erg = (int) (Math.random() * ((squadAnzahl-1) - 0) + 0);
-		return erg;
-	}
-	*/
 
 	public static void runGame() {
 		GameController game = new GameController();

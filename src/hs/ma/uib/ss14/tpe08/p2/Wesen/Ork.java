@@ -1,4 +1,4 @@
-package hs.ma.uib.ss14.tpe08.p2;
+package hs.ma.uib.ss14.tpe08.p2.Wesen;
 /**
  * 
  * @author Giang Pham

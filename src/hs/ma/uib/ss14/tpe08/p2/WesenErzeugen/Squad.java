@@ -1,4 +1,7 @@
-package hs.ma.uib.ss14.tpe08.p2;
+package hs.ma.uib.ss14.tpe08.p2.WesenErzeugen;
+
+import hs.ma.uib.ss14.tpe08.p2.Wesen.Wesen;
+
 
 /**
  * 
@@ -12,7 +15,7 @@ import java.util.ArrayList;
 public class Squad {
 	private String name;
 	private int kosten = 0;
-	ArrayList <Wesen> team = new ArrayList<Wesen>(); //GENERICS YO :D
+	public ArrayList <Wesen> team = new ArrayList<Wesen>(); //GENERICS YO :D
 	
 	public Squad(String name, Rasse rasse1, int investition1) {
 		this.name = name;
