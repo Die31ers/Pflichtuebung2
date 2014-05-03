@@ -3,6 +3,10 @@ package hs.ma.uib.ss14.tpe08.p2.Wesen;
 import hs.ma.uib.ss14.tpe08.p2.WesenErzeugen.Squad;
 
 /**
+ * Die Klasse Farseer ist eine Unterklasse von Ork. Der Anführer der Orks ist
+ * der Held Farseer. Farseer hat ein beherrschtes Element Erde. Die Anführer
+ * besitzen zusätzlich einen Bonus Faktor. Dieses wird auch als Multiplikator
+ * für die Heldenlebenspunkte verwendet. Bonus für Farseer ist 1.2
  * 
  * @author Giang Pham
  * @author Joshua Barsoum
@@ -31,6 +35,14 @@ public class Farseer extends Ork {
 		return vorhanden;
 	}
 
+	/**
+	 * Jede Held verfügt zusätzlich über eine Spezialfunktion die nur jede 3.
+	 * Runde aufgerufen werden kann.
+	 * 
+	 * @param s
+	 *            <code>doppelschlag(Squad s)</code> löscht 2 zufällige Wesen
+	 *            des Gegeners komplett aus.
+	 */
 	public void doppelschlag(Squad s) {
 		for (int i = 0; i < 2; i++) {
 			int zufall = (int) (Math.random() * (s.getAnzahl() - 0) + 0);
@@ -42,6 +54,13 @@ public class Farseer extends Ork {
 		return element;
 	}
 
+	/**
+	 * Hier wird die Methode <code>attack(Kaempfer r)</code> überschrieben, da
+	 * der Anführer sein Schaden verdoppelt, sobald er auf einen Gegner mit
+	 * unterlegenem ELement trifft.
+	 * 
+	 * @param r
+	 */
 	@Override
 	public double attack(Kaempfer r) {
 		double damage = geschwindigkeit * schaden * spezialAttribut * bonus;

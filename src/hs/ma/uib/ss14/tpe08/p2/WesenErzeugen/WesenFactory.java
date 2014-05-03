@@ -12,9 +12,8 @@ import hs.ma.uib.ss14.tpe08.p2.Wesen.Wesen;
 
 /**
  * 
- * Die Factory. Rasse wird als Parameter übergeben und die Anführer werden
- * automatisch hinzugefügt. Der Rest von der jeweiligen Rasse wird so oft
- * hinzugefügt, wie es mit dem Geld möglich ist.
+ * Die Factory Klasse. Hier werden die Wesen "fabriziert" bzw zum Leben erweckt
+ * und in Squads gesteckt.
  * 
  * @author Giang Pham
  * @author Joshua Barsoum
@@ -23,6 +22,16 @@ import hs.ma.uib.ss14.tpe08.p2.Wesen.Wesen;
  */
 public class WesenFactory {
 
+	/**
+	 * Die gewünschten Wesen mit Investition in den gewählten Squad , werden
+	 * gekauft. Rasse wird als Parameter übergeben und die Anführer werden
+	 * automatisch hinzugefügt. Der Rest von der jeweiligen Rasse wird so oft
+	 * hinzugefügt, wie es mit dem Geld möglich ist.
+	 * 
+	 * @param s
+	 * @param rasse
+	 * @param investition
+	 */
 	public static void kaufeWesen(Squad s, Rasse rasse, int investition) {
 		int erg = investition;
 		switch (rasse) {

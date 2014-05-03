@@ -3,6 +3,11 @@ package hs.ma.uib.ss14.tpe08.p2.Wesen;
 import hs.ma.uib.ss14.tpe08.p2.WesenErzeugen.Squad;
 
 /**
+ * Die Klasse Daemonenjaeger ist eine Unterklasse von Nachtelf. Der Anführer der
+ * Nachtelfen ist der mächtigste Elf Dämonenjäger. Dämonenjäger hat ein
+ * beherrschtes Element Luft. Die Anführer besitzen zusätzlich einen Bonus
+ * Faktor. Dieses wird auch als Multiplikator für die Heldenlebenspunkte
+ * verwendet. Bonus für Dämonenjäger ist 3.0
  * 
  * @author Giang Pham
  * @author Joshua Barsoum
@@ -31,6 +36,14 @@ public class Daemonenjaeger extends Nachtelf {
 		return vorhanden;
 	}
 
+	/**
+	 * Jeder Held verfügt zusätzlich über eine Spezialfunktion die nur jede 3.
+	 * Runde aufgerufen werden kann.
+	 * 
+	 * @param s
+	 *            <code>goldschuss(Squad s)</code> zieht allen Einheiten des
+	 *            Squads 25 ihrer Lebenspunkte ab.
+	 */
 	public void goldschuss(Squad s) {
 		s.erhalteTeamSchaden(25);
 	}
@@ -39,6 +52,13 @@ public class Daemonenjaeger extends Nachtelf {
 		return element;
 	}
 
+	/**
+	 * Hier wird die Methode <code>attack(Kaempfer r)</code> überschrieben, da
+	 * der Anführer sein Schaden verdoppelt, sobald er auf einen Gegner mit
+	 * unterlegenem ELement trifft. 
+	 * 
+	 * @param r
+	 */
 	@Override
 	public double attack(Kaempfer r) {
 		double damage = geschwindigkeit * schaden * spezialAttribut * bonus;

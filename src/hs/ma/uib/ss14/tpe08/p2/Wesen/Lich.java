@@ -39,7 +39,13 @@ public class Lich extends Untote {
 	public String getElement() {
 		return element;
 	}
-
+	/**
+	 * Hier wird die Methode <code>attack(Kaempfer r)</code> überschrieben, da
+	 * der Anführer sein Schaden verdoppelt, sobald er auf einen Gegner mit
+	 * unterlegenem ELement trifft. 
+	 * 
+	 * @param r
+	 */
 	@Override
 	public double attack(Kaempfer r) {
 		double damage = geschwindigkeit * schaden * spezialAttribut * bonus;

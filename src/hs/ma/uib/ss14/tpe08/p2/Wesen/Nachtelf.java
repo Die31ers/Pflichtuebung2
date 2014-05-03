@@ -1,16 +1,21 @@
 package hs.ma.uib.ss14.tpe08.p2.Wesen;
+
 /**
+ * Die Klasse Nachtelf ist eine Unterklasse von Wesen. Nachelfen besitzen die
+ * Eigenschaft sehr intelligent zu sein.
  * 
  * @author Giang Pham
  * @author Joshua Barsoum
  * @author Hunar Mawlod
- *
+ * 
  */
 public class Nachtelf extends Wesen {
-
+	/**
+	 * Durch den Schlüsselwort <code>super</code> rufen wir den Konstruktor
+	 * Wesen, mit den vordefinierten Eigenschaften auf.
+	 */
 	public Nachtelf() {
-		super("Nachtelf", "Sind sehr intelligent", 120, 20, 15, 3,
-				2.9);
+		super("Nachtelf", "Sind sehr intelligent", 120, 20, 15, 3, 2.9);
 	}
 
 	@Override
@@ -37,8 +42,5 @@ public class Nachtelf extends Wesen {
 	public String getElement() {
 		return "";
 	}
-
-
-
 
 }
