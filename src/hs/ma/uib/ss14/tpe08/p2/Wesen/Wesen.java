@@ -15,7 +15,7 @@ public abstract class Wesen implements Kaempfer {
 	protected double geschwindigkeit;
 	protected double spezialAttribut;
 
-	public Wesen(String rasse, String eigenschaft, double lebenspunkte,
+	protected Wesen(String rasse, String eigenschaft, double lebenspunkte,
 			double ruestung, double schaden, double geschwindigkeit,
 			double spezialAttribut) {
 		this.rasse = rasse;
