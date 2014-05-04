@@ -166,6 +166,26 @@ public class Teste {
 	  * Erde(Farseer) stärker Wasser(Lich)
 	  * Luft(Dämonenjäger) stärker Erde(Farseer)
 	  */
+	
+	@Test
+	public void testeGetElement1(){
+		assertEquals("Feuer", Erzmagier.getInstance().getElement());
+	}
+	
+	@Test
+	public void testeGetElement2(){
+		assertEquals("Luft", Daemonenjaeger.getInstance().getElement());
+	}
+	
+	@Test
+	public void testeGetElement3(){
+		assertEquals("Wasser", Lich.getInstance().getElement());
+	}
+	
+	@Test
+	public void testeGetElement4(){
+		assertEquals("Erde", Farseer.getInstance().getElement());
+	}
 
 	@Test
 	public void testeDoppelterSchaden1() {
